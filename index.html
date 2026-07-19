@@ -310,6 +310,17 @@ input.num{width:70px;font-family:inherit;font-size:1rem;font-weight:700;padding:
   <!-- ══ PRINTOUTS ══ -->
   <section class="scr" id="scr-prints">
     <button class="btn small btn-back no-print" data-go="title">← もどる</button>
+
+    <div class="panel no-print">
+      <h2>🎲 Sugoroku Board<span class="jp">すごろくボード</span></h2>
+      <p class="hint-line">Print the class board game and play at home!<br><span class="dj">クラスでやった すごろくを おうちでも！A4よこ1まいで印刷(いんさつ)できるよ。大(おお)きくしたいときは ポスター用(よう)の画像(がぞう)を使(つか)ってね。</span></p>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn" href="sugoroku_board_A4.pdf" download style="text-decoration:none;">📄 A4 Board (PDF)・A4ボード</a>
+        <a class="btn gold small" href="sugoroku_board_print.jpg" download style="text-decoration:none;">🖼 Poster Size (JPG)・ポスターサイズ</a>
+      </div>
+      <p class="hint-line" style="margin-top:8px;opacity:.75;">🎴 Game cards coming soon!・あそび方(かた)カードは じゅんびちゅう…</p>
+    </div>
+
     <div class="panel no-print">
       <h2>🦸 My Hero Card<span class="jp">きみだけのヒーローカード！</span></h2>
       <p class="hint-line">えをかいて、クラスをえらんで、ステータスをぬって、英語(えいご)でじこしょうかい！ぜんぶA4・1まいだよ。</p>
@@ -917,7 +928,9 @@ $('mc-gen').addEventListener('click',()=>{
         :`<div class="mc mcb-empty"></div>`;
     }).join('');
     const bsheet=document.createElement('div');bsheet.className='sheet';
-    bsheet.innerHTML=sheetHead('Vocab Mini-Cards — Back','🎴 たんごミニカード（うら）','',true)
+    /* IDENTICAL inst string as the fronts page — the instruction block has height,
+       and any difference shifts the whole grid vertically out of duplex alignment */
+    bsheet.innerHTML=sheetHead('Vocab Mini-Cards — Back','🎴 たんごミニカード（うら）','Cut along the dotted lines! For two-sided printing, choose long-edge binding (長辺(ちょうへん)とじ) so the backs line up!<br>点線(てんせん)で切(き)りとろう！両面印刷(りょうめんいんさつ)は「長辺(ちょうへん)とじ」でうらとぴったり合(あ)うよ。',true)
       +`<div class="mc-grid">${backs}</div>`+sheetFoot('Mini-Cards backs · p.'+(p/8+1));
     pv.appendChild(bsheet);
   }
